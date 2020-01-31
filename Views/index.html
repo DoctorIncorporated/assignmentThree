@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Enter Score</title>
+	<script>
+		function checkForm(){
+			if(document.getElementById("entryName").value == "" || document.getElementById("entryScore").value == ""){
+				event.preventDefault();
+				document.getElementById('err').innerHTML = "You need both a Name and a Score.";
+			}
+		}
+</script>
+</head>
+<body>
+	<div>
+		<h1>Enter Your Player Name and Score:</h1>
+		<nav>
+			<a href="index.html">Add Score</a>
+			<a href="scores.html">High Scores</a>
+		</nav>
+	</div>
+	<form action="/scorePost" method="POST" onsubmit="return checkForm()">
+        <span id="err" style="color:red"></span>
+        <table>
+			<tr>
+        		<td><label for="name">Enter Name Here</label></td>
+        		<td><input type="text" name="name" id="entryName"></td>
+			</tr>
+			<tr>
+				<td><label for="score">Enter Score Here</label></td>
+				<td><input type="number" name="score" id="entryScore"></td>
+			</tr>
+		</table>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
